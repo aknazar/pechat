@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<title>Про Печать</title>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:200,300,400,500,600,700&amp;subset=cyrillic" rel="stylesheet">
+
+		<link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight:400,700" rel="stylesheet">
+		<script src="https://use.fontawesome.com/b55a1ee8ea.js"></script>
+	</head>
+	<body>
+		<div class="call-button">
+			<i class="fa fa-phone fa-2x" aria-hidden="true"></i>
+		</div>
+
+		<div class="modal">
+			<div class="modal-box">
+				<div class="box-text">
+					Один шаг, чтобы получить бесплатную консультацию
+				</div>
+				<div class="box-text-buy">
+					Наш менеджер свяжется с вами, чтобы уточнить заказ
+				</div>
+				<form id="form-contact" method="POST" class="form-element">
+					<p class="form-message">
+						<input type="tel" name="phone" placeholder="7(777)-111-1111" id="input-num">
+					</p>
+					<button type="submit" id="send-btn">
+						<i class="fa fa-paper-plane fa-2x" aria-hidden="true"></i>
+					</button>
+				</form>
+				<div class="close-modal">Отменить</div>
+			</div>
+		</div>
+
+		<section class="main-section">
+			<div class="bg-overlay"></div>
+			<div class="main-content">
+				<h1>Pro.Pechat</h1>
+				<h3>Изготовление рекламного текстиля и сувениров</h3>
+				<div class="moda-btn">Получить консультацию<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i></div>
+			</div>
+			<a  class="smoothscroll">
+				<div class="scroll-down"></div>
+			</a>
+		</section>
+
+		<section class="about-us-section" id="about-us">
+			<div class="au-content">
+				<h2>О Нас</h2>
+				<div class="content-text">
+					Мы производим различную рекламную, брендированную текстильную и сувенирную продукцию, промо-, POS-материалы, гораздо качественнее, оперативнее и, самое главное, дешевле остальных конкурентов. Наше предприятие имеет многолетний опыт, возможность создания макетов, а также массового изготовления брендированной продукции
+				</div>
+			</div>
+		</section>
+		
+		<div class="products-header">Наши услуги:</div>
+		<section class="products-section" id="productsApp">
+			<div class="cards">
+				<div v-for="prod in products1" :class="{ active: prod.isActive, 'product-card': true }">
+					<div class="card-icon" @click="show(prod)">
+						<img :src="prod.icon">
+					</div>
+					<div class="product-photo">
+						<img :src="prod.photo">
+					</div>
+					<div class="product-info">
+						<div class="info-header">{{ prod.name }}</div>
+						<div class="info-text">{{ prod.text }}</div>
+						<div class="info-header">{{ prod.header2 }}</div>
+						<div class="info-text">{{ prod.text2 }}</div>
+						<div class="info-header">{{ prod.header3 }}</div>
+						<div class="info-text">{{ prod.text3 }}</div>
+						<div class="buy-btn">
+							<div class="price">{{ prod.price }}</div>
+							<div class="submit">купить</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="number">
+				<div class="num">01</div>
+				<div class="section-name">Печать на текстиле</div>
+			</div>
+
+			<div class="number">
+				<div class="num">02</div>
+				<div class="section-name">Печать на бумаге</div>
+			</div>
+			<div class="cards right">
+				<div v-for="prod in products2" :class="{ active: prod.isActive, 'product-card': true }">
+					<div class="card-icon" @click="show2(prod)">
+						<img :src="prod.icon">
+					</div>
+					<div class="product-info">
+						<div class="info-header">{{ prod.name }}</div>
+						<div class="info-text">{{ prod.text }}</div>
+						<div class="info-header">{{ prod.header2 }}</div>
+						<div class="info-text">{{ prod.text2 }}</div>
+						<div class="info-header">{{ prod.header3 }}</div>
+						<div class="info-text">{{ prod.text3 }}</div>
+						<div class="buy-btn">
+							<div class="price">{{ prod.price }}</div>
+							<div class="submit">купить</div>
+						</div>
+					</div>
+					<div class="product-photo">
+						<img :src="prod.photo">
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<section class="delivery-section">
+			<div class="header">О доставке:</div>
+			<div class="delivery-items">
+				<div class="item">
+					<div class="item-img">
+						<img src="img/icons/van.png">
+					</div>
+					<div class="item-text">Бесплатная доставка (МКАД)</div>
+					<div class="item-text2">₽ 199 по России</div>
+				</div>
+				<div class="item">
+					<div class="item-img">
+						<img src="img/icons/hanger.png">
+					</div>
+					<div class="item-text">Бесплатная примерка (Москва и МО)</div>
+				</div>
+				<div class="item">
+					<div class="item-img">
+						<img src="img/icons/watch.png">
+					</div>
+					<div class="item-text">Доставка на след день Москва и МО</div>
+					<div class="item-text2">7-20 дней по России</div>
+				</div>
+				<div class="item">
+					<div class="item-img">
+						<img src="img/icons/info.png">
+					</div>
+					<div class="item-text">Подробности доставки можете уточнить по телефону +7 (965) 35-255-00</div>
+				</div>
+			</div>
+		</section>
+
+		<div class="review-header">Отзывы наших клиентов</div>
+		<section class="reviews-section" id="reviewApp">
+			<div class="prev-arrow">
+				<i class="fa fa-angle-left fa-3x" aria-hidden="true" @click="showPrev"></i>
+			</div>
+			<div class="review" >
+				<div class="review-text">{{ rText }}</div>
+				<div class="review-photo" v-bind:style="{ backgroundImage: 'url(' + rPhoto + ')' }">
+				</div>
+				<div class="reviewer-name">{{ rName }}</div>
+				<div class="reviewer-position">{{ rPosition }}</div>
+			</div>
+			<div class="next-arrow">
+				<i class="fa fa-angle-right fa-3x" aria-hidden="true" @click="showNext"></i>
+			</div>
+		</section>
+
+		<section class="call-section">
+			<div class="call-section-layout">
+				<div class="head">
+					<div class="header">Остались еще вопросы?</div>
+					<div class="post-header">Оставьте заявку, наш менеджер с вами свяжется</div>
+				</div>
+				<form action="">
+					<input type="tel" name="phone" placeholder="7(777)-111-1111" id="input-num">
+					<button><i class="fa fa-paper-plane fa-lg" aria-hidden="true"></i></button>
+				</form>
+			</div>
+		</section>
+		
+		<section class="contacts-section">
+			<div class="map" id="map"></div>
+			<div class="contacts-info">
+				<div class="header">Контакты</div>
+				<div class="contacts">
+					<div class="tel">
+						<a href="tel:79653525500">+7 (965) 352-55-00</a>
+					</div>
+					<div class="email">
+						<a href="mailto:zakaz@propechat.pro?Subject=Hello">zakaz@propechat.pro</a>
+					</div>
+					<div class="adress">
+						Партийный переулок 1, г.Москва
+					</div>
+				</div>
+				<div class="social">
+					<div class="icon">
+						<i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
+					</div>
+					<div class="icon">
+						<i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
+					</div>
+					<div class="icon">
+						<i class="fa fa-vk fa-lg" aria-hidden="true"></i>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		
+	</body>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/vue.min.js"></script>
+	<script src="js/products.js"></script>
+	<script src="js/scroll.js"></script>
+	<script src="js/review.js"></script>
+	<script src="js/modal.js"></script>
+	<script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+	<script src="js/map.js"></script>
+	<script>
+		function phoneMask() { 
+		    var num = $(this).val().replace(/\D/g,''); 
+		    $(this).val(num.substring(0,1) + '(' + num.substring(1,4) + ')' + num.substring(4,7) + '-' + num.substring(7,11)); 
+		}
+		$('[type="tel"]').keyup(phoneMask);
+	</script>
+</html>
